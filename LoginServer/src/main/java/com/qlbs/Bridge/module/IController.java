@@ -39,4 +39,6 @@ public interface IController {
 
 	public Class<?> getLoginParams();
 
+	public boolean checkLogin(Object param);
+
 }

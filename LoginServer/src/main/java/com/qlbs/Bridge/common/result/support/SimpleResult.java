@@ -14,4 +14,9 @@ public class SimpleResult extends AbstractResult {
 		return new SimpleResult(codeEnum);
 	}
 
+	@Override
+	public String toStr() {
+		return null;
+	}
+
 }

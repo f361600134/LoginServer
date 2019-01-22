@@ -6,7 +6,7 @@ package com.qlbs.Bridge.module.youxifan.ios.param;
  * @auth Jeremy
  * @date 2019年1月9日下午2:24:03
  */
-public class AbstractParameter implements IParameter {
+public abstract class AbstractParameter {
 
 	private String userId;
 	private String serverId;

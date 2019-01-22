@@ -10,6 +10,16 @@ import com.qlbs.Bridge.common.result.IResult;
  */
 public class OrderResult implements IResult {
 
+	private String result;
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	@Override
 	public IResult build() {
 		return null;
@@ -18,6 +28,11 @@ public class OrderResult implements IResult {
 	@Override
 	public boolean isSuccess() {
 		return false;
+	}
+
+	@Override
+	public String toStr() {
+		return result;
 	}
 
 }

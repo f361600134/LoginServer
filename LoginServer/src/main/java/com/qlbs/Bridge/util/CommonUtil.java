@@ -59,6 +59,7 @@ public class CommonUtil {
 					bool = false;
 				}
 			}
+			sb.deleteCharAt(sb.length() - 1);
 			logger.info("参数信息, param:{}", sb.toString());
 		} catch (Exception e) {
 			bool = false;

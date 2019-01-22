@@ -27,4 +27,10 @@ public final class ProcessResult extends AbstractResult {
 		ProcessResult result = new ProcessResult(processEnum, orderId);
 		return result;
 	}
+
+	@Override
+	public String toStr() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

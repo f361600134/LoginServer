@@ -26,4 +26,6 @@ public interface IResult {
 	 */
 	public boolean isSuccess();
 
+	public String toStr();
+
 }

@@ -27,4 +27,9 @@ public class YouxifanIOSLoginParam extends AbstractParameter {
 		this.token = token;
 	}
 
+	@Override
+	public String toString() {
+		return "YouxifanIOSLoginParam [token=" + token + ", getGameKey()=" + getGameKey() + ", getUserId()=" + getUserId() + ", getServerId()=" + getServerId() + ", getQdCode1()=" + getQdCode1() + ", getQdCode2()=" + getQdCode2() + "]";
+	}
+
 }

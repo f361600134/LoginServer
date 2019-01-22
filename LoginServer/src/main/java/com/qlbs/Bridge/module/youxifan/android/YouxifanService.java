@@ -62,7 +62,7 @@ public class YouxifanService {
 	public boolean verifyOrder(ReChargeInfo reChargeInfo, PayOrder payOrder) {
 		String[] extract = new String[] { "sign" };
 		Map<String, String> resultMap = CommonUtil.objToTreeMap(reChargeInfo, extract);
-		String localSign = getLocalSign(resultMap, payOrder);
+		String localSign = getLocalSign(resultMap);
 		if (StringUtils.isAnyBlank(localSign, reChargeInfo.getSign())) {
 			logger.error("签名为空,  localSign:{}, reChargeInfo:{}", localSign, reChargeInfo.getSign());
 			return false;
@@ -81,7 +81,7 @@ public class YouxifanService {
 	 * @param map
 	 * @return
 	 */
-	private String getLocalSign(Map<String, String> map, PayOrder payOrder) {
+	private String getLocalSign(Map<String, String> map) {
 		StringBuilder url = new StringBuilder();
 		// key1=value1&key2=value2&key3=value3&
 		for (Map.Entry<String, String> entry : map.entrySet()) {

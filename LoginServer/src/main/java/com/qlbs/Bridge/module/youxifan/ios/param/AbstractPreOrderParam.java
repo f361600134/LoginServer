@@ -6,7 +6,7 @@ package com.qlbs.Bridge.module.youxifan.ios.param;
  * @auth Jeremy
  * @date 2019年1月10日下午2:42:27
  */
-public class PreOrderParam implements IParameter {
+public class AbstractPreOrderParam {
 
 	private String qd1;
 	private String qd2;
@@ -18,9 +18,8 @@ public class PreOrderParam implements IParameter {
 	private String money;
 	private String yuanbao;
 	private String sign;
-	// private String userId;
 
-	public PreOrderParam(String qd1, String qd2, String playerId, String playerName, String gameKey, String serverId, String eUrl, String money, String yuanbao, String sign) {
+	public AbstractPreOrderParam(String qd1, String qd2, String playerId, String playerName, String gameKey, String serverId, String eUrl, String money, String yuanbao, String sign) {
 		super();
 		this.qd1 = qd1;
 		this.qd2 = qd2;

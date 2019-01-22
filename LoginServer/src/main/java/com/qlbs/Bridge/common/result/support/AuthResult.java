@@ -129,4 +129,9 @@ public class AuthResult extends AbstractResult {
 		return "AuthResult [code=" + super.getCode() + ", desc=" + super.getDesc() + ", identityName=" + identityName + ", identityId=" + identityId + ", serverId=" + serverId + ", tstamp=" + tstamp + ", sign=" + sign + "]";
 	}
 
+	@Override
+	public String toStr() {
+		return null;
+	}
+
 }

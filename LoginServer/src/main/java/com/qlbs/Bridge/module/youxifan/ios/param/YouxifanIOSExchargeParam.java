@@ -1,9 +1,9 @@
 package com.qlbs.Bridge.module.youxifan.ios.param;
 
-public class YouxifanIOSExchargeParam implements IParameter {
+public class YouxifanIOSExchargeParam implements IExchargeParam {
 
 	private String orderid;// 订单号
-	private String username;// 登录账号⽤户名
+	private String username;// 登录账号户名
 	private Integer gameid;// 游戏 ID
 	private String roleid;// 游戏⻆ID
 	private Integer serverid;// 服务器 ID
@@ -14,16 +14,16 @@ public class YouxifanIOSExchargeParam implements IParameter {
 	private String sign;// 服务端返回的签名
 	private String userid;// 登录账号 ID(为兼容⽼包，此参数不参与签名)
 
-	public YouxifanIOSExchargeParam() {
-		super();
-	}
-
 	public String getOrderid() {
 		return orderid;
 	}
 
 	public void setOrderid(String orderid) {
 		this.orderid = orderid;
+	}
+
+	public YouxifanIOSExchargeParam() {
+		super();
 	}
 
 	public String getUsername() {
@@ -108,6 +108,11 @@ public class YouxifanIOSExchargeParam implements IParameter {
 
 	@Override
 	public String toString() {
-		return "YouxifanIOSExchargeParam [orderid=" + orderid + ", username=" + username + ", gameid=" + gameid + ", roleid=" + roleid + ", serverid=" + serverid + ", paytype=" + paytype + ", amount=" + amount + ", paytime=" + paytime + ", attach=" + attach + ", sign=" + sign + ", userid=" + userid + "]";
+		return "YouxifanIOSExchargeParam [username=" + username + ", gameid=" + gameid + ", roleid=" + roleid + ", serverid=" + serverid + ", paytype=" + paytype + ", amount=" + amount + ", paytime=" + paytime + ", attach=" + attach + ", sign=" + sign + ", userid=" + userid + "]";
+	}
+
+	@Override
+	public String getOrderId() {
+		return getOrderid();
 	}
 }

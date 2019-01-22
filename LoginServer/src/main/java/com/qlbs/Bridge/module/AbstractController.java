@@ -14,9 +14,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.qlbs.Bridge.common.ResultCode;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
+import com.qlbs.Bridge.common.result.support.AuthResult;
 import com.qlbs.Bridge.common.result.support.SimpleResult;
+import com.qlbs.Bridge.domain.OrderStatusEnum;
+import com.qlbs.Bridge.domain.entity.PayOrder;
+import com.qlbs.Bridge.module.youxifan.ios.BusinessResult;
+import com.qlbs.Bridge.module.youxifan.ios.param.IExchargeParam;
 import com.qlbs.Bridge.service.PayOrderService;
 import com.qlbs.Bridge.service.UserDataService;
 import com.qlbs.Bridge.util.CommonUtil;
@@ -53,20 +59,32 @@ public abstract class AbstractController implements IController {
 		try {
 			Object param = CommonUtil.convertMap(getLoginParams(), paramMap);
 			IResult result = checkParams(param);
-			if (result == null) {
-				// TODO
-				info("验证成功...");
+			if (result != null) {
+				info("验证失败...");
+				return AuthResult.faild(ErrorCodeEnum.IllEGAL_PARAMS);
 			}
+			boolean bool = checkLogin(param);
+			if (!bool) {
+				info("sdk校验出错", param);
+				return AuthResult.faild(ErrorCodeEnum.ERROR_SIGN);
+			}
+			info("sdk校验成功", param);
+			return getUserDataService().authenticate(param);
 		} catch (Exception e) {
 			e.printStackTrace();
 			error("强转参数错误");
 		}
-		return null;
+		return AuthResult.faild(ErrorCodeEnum.ERROR_UNKNOWN);
 	}
 
 	@Override
 	public Class<?> getLoginParams() {
 		return null;
+	}
+
+	@Override
+	public boolean checkLogin(Object param) {
+		return false;
 	}
 
 	/**
@@ -103,6 +121,64 @@ public abstract class AbstractController implements IController {
 		}
 		result = getPayOrderService().createOrder(qd1, qd2, playerId, userId, playerName, gameKey, serverId, eUrl, price, gameMoney, sign);
 		return result;
+	}
+
+	public Class getExchargeParams() {
+		return null;
+	}
+
+	/**
+	 * sdk充值验证
+	 * 
+	 * @return
+	 * @return BusinessResult
+	 * @date 2019年1月22日下午7:35:37
+	 */
+	public BusinessResult<?> sdkExcharge(IExchargeParam param, PayOrder payOrder) {
+		return null;
+	}
+
+	/**
+	 *
+	 * @return 0：接收成功 1:签名错误 2：未知错误
+	 */
+	@Override
+	public String excharge(HttpServletRequest request, HttpServletResponse response) {
+		String resultCode = null;
+		info("This is AbstractController's excharge method");
+		Map<String, String[]> paramMap = request.getParameterMap();
+		IExchargeParam param = null;
+		try {
+			param = CommonUtil.convertMap(getExchargeParams(), paramMap);
+			IResult result = checkParams(param);
+			if (result != null) {
+				info("验证失败...");
+				return result.toStr();
+			}
+			// 获取到有效订单信息
+			PayOrder payOrder = getPayOrderService().getPayOrder(param.getOrderId());
+			if (payOrder != null) {
+				// 验证订单信息
+				BusinessResult<?> businessResult = sdkExcharge(param, payOrder);
+				if (businessResult.getResult().isSuccess()) {
+					// 兑换游戏币
+					getPayOrderService().exchangeGameMoney(payOrder);
+					resultCode = ResultCode.CODE_0;
+				} else {
+					resultCode = ResultCode.CODE_1;
+					info("充值回调数据校验错误, reChargeInfo:{}", param);
+				}
+				payOrder.setPayStatus(OrderStatusEnum.Order_Confirmed_Exchanging);
+				payOrder.setChannelOrderId(param.getOrderId());
+			} else {
+				resultCode = ResultCode.CODE_1;
+				info("充值失败订单有误, reChargeInfo:{}", param);
+			}
+		} catch (Exception e) {
+			resultCode = ResultCode.CODE_2;
+			error("充值回调出现异常, reChargeInfo:{}", param);
+		}
+		return resultCode;
 	}
 
 	/**
