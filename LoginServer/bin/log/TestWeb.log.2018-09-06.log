@@ -1,0 +1,268 @@
+2018-09-06 10:56:03.961 [main] ERROR com.qlbs.Bridge.util.HttpRequestProxy - 
+java.io.FileNotFoundException: http://47.92.122.53:8180/quick2_auth/quick2/auth1
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1624)
+	at com.qlbs.Bridge.util.HttpRequestProxy.post(HttpRequestProxy.java:186)
+	at com.qlbs.Bridge.util.HttpRequestProxy.post(HttpRequestProxy.java:148)
+	at com.qlbs.Bridge.util.HttpRequestProxy.main(HttpRequestProxy.java:292)
+2018-09-06 10:56:19.513 [main] ERROR com.qlbs.Bridge.util.HttpRequestProxy - 
+java.io.FileNotFoundException: http://47.92.122.53:8180/quick2_auth/quick2/auth1
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1624)
+	at com.qlbs.Bridge.util.HttpRequestProxy.post(HttpRequestProxy.java:186)
+	at com.qlbs.Bridge.util.HttpRequestProxy.post(HttpRequestProxy.java:148)
+	at com.qlbs.Bridge.util.HttpRequestProxy.main(HttpRequestProxy.java:292)
+2018-09-06 14:37:52.687 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Starting BridgeApplication on SKY-20120726JWU with PID 10004 (D:\workspace2018\me\LoginServer\target\classes started by Administrator in D:\workspace2018\me\LoginServer)
+2018-09-06 14:37:52.718 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - No active profile set, falling back to default profiles: default
+2018-09-06 14:37:52.781 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@10e3c6a3: startup date [Thu Sep 06 14:37:52 CST 2018]; root of context hierarchy
+2018-09-06 14:37:53.248 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-09-06 14:37:54.877 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-09-06 14:37:54.889 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-09-06 14:37:54.890 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-09-06 14:37:54.975 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-09-06 14:37:54.975 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2194 ms
+2018-09-06 14:37:55.181 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-06 14:37:55.187 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-06 14:37:55.188 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-06 14:37:55.189 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-06 14:37:55.189 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-06 14:37:56.034 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:37:56.049 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-06 14:37:56.133 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-09-06 14:37:56.134 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-09-06 14:37:56.135 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-09-06 14:37:56.201 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-09-06 14:37:56.376 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-09-06 14:37:56.850 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:37:56.958 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:37:57.000 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:37:57.803 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@10e3c6a3: startup date [Thu Sep 06 14:37:52 CST 2018]; root of context hierarchy
+2018-09-06 14:37:57.893 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index]}" onto public java.lang.String com.qlbs.Bridge.controller.HelloWorldController.index()
+2018-09-06 14:37:57.894 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/params]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.params(java.lang.String,java.lang.String)
+2018-09-06 14:37:57.895 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.test(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:37:57.896 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello]}" onto public com.qlbs.Bridge.domain.UserData com.qlbs.Bridge.controller.HelloWorldController.hello()
+2018-09-06 14:37:57.896 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/httptest]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.httptest()
+2018-09-06 14:37:57.897 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login]}" onto public java.lang.String com.qlbs.Bridge.controller.LoginController.login()
+2018-09-06 14:37:57.899 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSLogin.login()
+2018-09-06 14:37:57.910 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:37:57.911 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:37:57.975 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:37:57.975 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:37:58.052 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:37:58.442 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-09-06 14:37:58.705 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-09-06 14:37:58.778 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:37:58.796 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:37:58.827 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-09-06 14:37:58.849 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-09-06 14:37:58.856 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Started BridgeApplication in 6.584 seconds (JVM running for 7.483)
+2018-09-06 14:38:06.974 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-09-06 14:38:06.974 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-09-06 14:38:07.000 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2018-09-06 14:38:11.625 [http-nio-8080-exec-2] INFO  c.qlbs.Bridge.module.youxifan.ios.YouxifanIOSLogin - ===========
+2018-09-06 14:50:15.826 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Starting BridgeApplication on SKY-20120726JWU with PID 7560 (D:\workspace2018\me\LoginServer\target\classes started by Administrator in D:\workspace2018\me\LoginServer)
+2018-09-06 14:50:15.828 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - No active profile set, falling back to default profiles: default
+2018-09-06 14:50:15.875 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78f110cb: startup date [Thu Sep 06 14:50:15 CST 2018]; root of context hierarchy
+2018-09-06 14:50:16.178 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-09-06 14:50:17.775 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-09-06 14:50:17.785 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-09-06 14:50:17.785 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-09-06 14:50:17.870 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-09-06 14:50:17.871 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1995 ms
+2018-09-06 14:50:18.041 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-06 14:50:18.045 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-06 14:50:18.046 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-06 14:50:18.046 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-06 14:50:18.046 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-06 14:50:18.641 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:50:18.664 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-06 14:50:18.751 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-09-06 14:50:18.753 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-09-06 14:50:18.754 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-09-06 14:50:18.794 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-09-06 14:50:18.905 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-09-06 14:50:19.366 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:50:19.461 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:50:19.501 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:50:20.163 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78f110cb: startup date [Thu Sep 06 14:50:15 CST 2018]; root of context hierarchy
+2018-09-06 14:50:20.266 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index]}" onto public java.lang.String com.qlbs.Bridge.controller.HelloWorldController.index()
+2018-09-06 14:50:20.267 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.test(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:50:20.268 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/params]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.params(java.lang.String,java.lang.String)
+2018-09-06 14:50:20.269 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello]}" onto public com.qlbs.Bridge.domain.UserData com.qlbs.Bridge.controller.HelloWorldController.hello()
+2018-09-06 14:50:20.270 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/httptest]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.httptest()
+2018-09-06 14:50:20.271 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login]}" onto public java.lang.String com.qlbs.Bridge.controller.LoginController.login()
+2018-09-06 14:50:20.277 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.login()
+2018-09-06 14:50:20.278 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/createOrder]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.createOrder()
+2018-09-06 14:50:20.280 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/excharge]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.excharge()
+2018-09-06 14:50:20.287 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:50:20.288 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:50:20.353 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:50:20.353 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:50:20.416 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:50:20.752 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-09-06 14:50:21.016 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-09-06 14:50:21.076 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:50:21.094 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:50:21.103 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-09-06 14:50:21.123 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-09-06 14:50:21.130 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Started BridgeApplication in 5.552 seconds (JVM running for 5.966)
+2018-09-06 14:50:24.762 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-09-06 14:50:24.762 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-09-06 14:50:24.780 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-09-06 14:51:13.399 [Thread-7] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78f110cb: startup date [Thu Sep 06 14:50:15 CST 2018]; root of context hierarchy
+2018-09-06 14:51:13.402 [Thread-7] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2018-09-06 14:51:13.404 [Thread-7] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:13.405 [Thread-7] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:51:13.450 [Thread-7] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:51:13.795 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Starting BridgeApplication on SKY-20120726JWU with PID 7560 (D:\workspace2018\me\LoginServer\target\classes started by Administrator in D:\workspace2018\me\LoginServer)
+2018-09-06 14:51:13.795 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - No active profile set, falling back to default profiles: default
+2018-09-06 14:51:13.800 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a865f63: startup date [Thu Sep 06 14:51:13 CST 2018]; root of context hierarchy
+2018-09-06 14:51:14.374 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-09-06 14:51:14.375 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-09-06 14:51:14.375 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-09-06 14:51:14.387 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-09-06 14:51:14.388 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 588 ms
+2018-09-06 14:51:14.440 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-06 14:51:14.441 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-06 14:51:14.441 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-06 14:51:14.442 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-06 14:51:14.442 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-06 14:51:14.592 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:14.593 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-06 14:51:14.605 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-09-06 14:51:14.659 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:51:14.749 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:51:14.751 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:14.909 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a865f63: startup date [Thu Sep 06 14:51:13 CST 2018]; root of context hierarchy
+2018-09-06 14:51:14.919 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index]}" onto public java.lang.String com.qlbs.Bridge.controller.HelloWorldController.index()
+2018-09-06 14:51:14.920 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.test(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:51:14.920 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/params]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.params(java.lang.String,java.lang.String)
+2018-09-06 14:51:14.920 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello]}" onto public com.qlbs.Bridge.domain.UserData com.qlbs.Bridge.controller.HelloWorldController.hello()
+2018-09-06 14:51:14.921 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/httptest]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.httptest()
+2018-09-06 14:51:14.921 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login]}" onto public java.lang.String com.qlbs.Bridge.controller.LoginController.login()
+2018-09-06 14:51:14.924 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.login()
+2018-09-06 14:51:14.924 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/createOrder]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.createOrder()
+2018-09-06 14:51:14.925 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/excharge]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.excharge()
+2018-09-06 14:51:14.927 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:51:14.927 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:51:14.936 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:14.936 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:14.950 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:14.994 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-09-06 14:51:15.039 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-09-06 14:51:15.045 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:51:15.046 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:51:15.046 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-09-06 14:51:15.049 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-09-06 14:51:15.053 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Started BridgeApplication in 1.292 seconds (JVM running for 59.889)
+2018-09-06 14:51:19.414 [Thread-11] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a865f63: startup date [Thu Sep 06 14:51:13 CST 2018]; root of context hierarchy
+2018-09-06 14:51:19.417 [Thread-11] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2018-09-06 14:51:19.424 [Thread-11] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:19.426 [Thread-11] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:51:19.464 [Thread-11] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:51:19.735 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Starting BridgeApplication on SKY-20120726JWU with PID 7560 (D:\workspace2018\me\LoginServer\target\classes started by Administrator in D:\workspace2018\me\LoginServer)
+2018-09-06 14:51:19.736 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - No active profile set, falling back to default profiles: default
+2018-09-06 14:51:19.737 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12f0ba76: startup date [Thu Sep 06 14:51:19 CST 2018]; root of context hierarchy
+2018-09-06 14:51:20.245 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-09-06 14:51:20.247 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-09-06 14:51:20.247 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-09-06 14:51:20.257 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-09-06 14:51:20.258 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 521 ms
+2018-09-06 14:51:20.299 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-06 14:51:20.300 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-06 14:51:20.300 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-06 14:51:20.300 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-06 14:51:20.300 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-06 14:51:20.442 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:20.442 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-06 14:51:20.457 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-09-06 14:51:20.509 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:51:20.594 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:51:20.596 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:51:20.737 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12f0ba76: startup date [Thu Sep 06 14:51:19 CST 2018]; root of context hierarchy
+2018-09-06 14:51:20.749 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index]}" onto public java.lang.String com.qlbs.Bridge.controller.HelloWorldController.index()
+2018-09-06 14:51:20.749 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.test(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:51:20.749 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/params]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.params(java.lang.String,java.lang.String)
+2018-09-06 14:51:20.749 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello]}" onto public com.qlbs.Bridge.domain.UserData com.qlbs.Bridge.controller.HelloWorldController.hello()
+2018-09-06 14:51:20.750 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/httptest]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.httptest()
+2018-09-06 14:51:20.750 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login]}" onto public java.lang.String com.qlbs.Bridge.controller.LoginController.login()
+2018-09-06 14:51:20.753 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.login()
+2018-09-06 14:51:20.753 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/createOrder]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.createOrder()
+2018-09-06 14:51:20.753 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/excharge]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.excharge()
+2018-09-06 14:51:20.755 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:51:20.756 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:51:20.767 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:20.768 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:20.788 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:51:20.850 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-09-06 14:51:20.901 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-09-06 14:51:20.909 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:51:20.910 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:51:20.911 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-09-06 14:51:20.915 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-09-06 14:51:20.919 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Started BridgeApplication in 1.211 seconds (JVM running for 65.755)
+2018-09-06 14:51:25.382 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-09-06 14:51:25.382 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-09-06 14:51:25.387 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 4 ms
+2018-09-06 14:51:42.004 [http-nio-8080-exec-8] INFO  c.q.B.module.youxifan.ios.YouxifanIOSController - This is YouxifanIOSController's login method
+2018-09-06 14:57:35.142 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Starting BridgeApplication on SKY-20120726JWU with PID 8680 (D:\workspace2018\me\LoginServer\target\classes started by Administrator in D:\workspace2018\me\LoginServer)
+2018-09-06 14:57:35.144 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - No active profile set, falling back to default profiles: default
+2018-09-06 14:57:35.192 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@61c971ec: startup date [Thu Sep 06 14:57:35 CST 2018]; root of context hierarchy
+2018-09-06 14:57:35.497 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-09-06 14:57:37.014 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-09-06 14:57:37.024 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-09-06 14:57:37.025 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-09-06 14:57:37.104 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-09-06 14:57:37.104 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1912 ms
+2018-09-06 14:57:37.273 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-06 14:57:37.277 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-06 14:57:37.278 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-06 14:57:37.278 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-06 14:57:37.278 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-06 14:57:37.901 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:57:37.917 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-06 14:57:37.977 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-09-06 14:57:37.978 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-09-06 14:57:37.979 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-09-06 14:57:38.013 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-09-06 14:57:38.127 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-09-06 14:57:38.515 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2018-09-06 14:57:38.616 [restartedMain] INFO  org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2018-09-06 14:57:38.645 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-06 14:57:39.305 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@61c971ec: startup date [Thu Sep 06 14:57:35 CST 2018]; root of context hierarchy
+2018-09-06 14:57:39.397 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index]}" onto public java.lang.String com.qlbs.Bridge.controller.HelloWorldController.index()
+2018-09-06 14:57:39.398 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/params]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.params(java.lang.String,java.lang.String)
+2018-09-06 14:57:39.399 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.test(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:57:39.400 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello]}" onto public com.qlbs.Bridge.domain.UserData com.qlbs.Bridge.controller.HelloWorldController.hello()
+2018-09-06 14:57:39.401 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/httptest]}" onto public void com.qlbs.Bridge.controller.HelloWorldController.httptest()
+2018-09-06 14:57:39.402 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login]}" onto public java.lang.String com.qlbs.Bridge.controller.LoginController.login()
+2018-09-06 14:57:39.408 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/Youxifan/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.android.YouxifanAdController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.409 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/Youxifan/createOrder]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.android.YouxifanAdController.createOrder(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.411 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/Youxifan/excharge]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.android.YouxifanAdController.excharge(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.417 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/login]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.418 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/createOrder]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.createOrder(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.419 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/YouxifanIOS/excharge]}" onto public java.lang.String com.qlbs.Bridge.module.youxifan.ios.YouxifanIOSController.excharge(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.428 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-06 14:57:39.429 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-06 14:57:39.483 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:57:39.483 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:57:39.549 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-09-06 14:57:39.880 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-09-06 14:57:40.137 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-09-06 14:57:40.197 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:57:40.216 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-09-06 14:57:40.225 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-09-06 14:57:40.248 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-09-06 14:57:40.256 [restartedMain] INFO  com.qlbs.Bridge.BridgeApplication - Started BridgeApplication in 5.362 seconds (JVM running for 5.808)
+2018-09-06 14:57:48.716 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-09-06 14:57:48.716 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-09-06 14:57:48.745 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 29 ms
+2018-09-06 14:57:48.779 [http-nio-8080-exec-2] INFO  c.q.B.module.youxifan.android.YouxifanAdController - This is YouxifanController's login method
