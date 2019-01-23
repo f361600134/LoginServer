@@ -20,6 +20,7 @@ public enum ErrorCodeEnum {
 	SERVER_MAINTENANCE(9, "服务器正在维护"), //
 	ERROR_CHANNEL(10, "未知的客户端渠道号"), //
 	ERROR_ORDER_CREATE(11, "订单创建失败"), //
+	ERROR_RUNNING(12, "代码错误"), //
 	;
 
 	private int status;

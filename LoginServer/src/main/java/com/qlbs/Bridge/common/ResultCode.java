@@ -14,5 +14,6 @@ public class ResultCode {
 	public static String CODE_FAILD = "FAILD";
 	public static String CODE_SIGN_ERROR = "SignError";
 	public static String CODE_ORDER_ERROR = "OrderError";
+	public static String CODE_RINNING_ERROR = "runningError";
 
 }

@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.qlbs.Bridge.common.ResultCode;
+import com.qlbs.Bridge.common.annotation.ParameterMapping;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
 import com.qlbs.Bridge.common.result.support.AuthResult;
@@ -57,33 +58,29 @@ public abstract class AbstractController implements IController {
 		info("This is AbstractController's login method");
 		Map<String, String[]> paramMap = request.getParameterMap();
 		try {
-			Object param = CommonUtil.convertMap(getLoginParams(), paramMap);
+			ParameterMapping parameterMapping = this.getClass().getAnnotation(ParameterMapping.class);
+			if (parameterMapping == null || parameterMapping.loginParam() == null) {
+				info("登录参数配置为空, 请检查是否配置[@ParameterMapping]注解");
+				return AuthResult.faild(ErrorCodeEnum.ERROR_RUNNING);
+			}
+			Object param = CommonUtil.convertMap(parameterMapping.loginParam(), paramMap);
 			IResult result = checkParams(param);
 			if (result != null) {
-				info("验证失败...");
 				return AuthResult.faild(ErrorCodeEnum.IllEGAL_PARAMS);
 			}
-			boolean bool = checkLogin(param);
+			boolean bool = sdkLogin(param);
 			if (!bool) {
 				info("sdk校验出错", param);
 				return AuthResult.faild(ErrorCodeEnum.ERROR_SIGN);
 			}
-			info("sdk校验成功", param);
 			return getUserDataService().authenticate(param);
 		} catch (Exception e) {
-			e.printStackTrace();
-			error("强转参数错误");
+			error("登录出错, e:{}", e);
 		}
 		return AuthResult.faild(ErrorCodeEnum.ERROR_UNKNOWN);
 	}
 
-	@Override
-	public Class<?> getLoginParams() {
-		return null;
-	}
-
-	@Override
-	public boolean checkLogin(Object param) {
+	public boolean sdkLogin(Object param) {
 		return false;
 	}
 
@@ -123,10 +120,6 @@ public abstract class AbstractController implements IController {
 		return result;
 	}
 
-	public Class getExchargeParams() {
-		return null;
-	}
-
 	/**
 	 * sdk充值验证
 	 * 
@@ -134,7 +127,7 @@ public abstract class AbstractController implements IController {
 	 * @return BusinessResult
 	 * @date 2019年1月22日下午7:35:37
 	 */
-	public BusinessResult<?> sdkExcharge(IExchargeParam param, PayOrder payOrder) {
+	public BusinessResult<String> sdkExcharge(IExchargeParam param, PayOrder payOrder) {
 		return null;
 	}
 
@@ -149,25 +142,28 @@ public abstract class AbstractController implements IController {
 		Map<String, String[]> paramMap = request.getParameterMap();
 		IExchargeParam param = null;
 		try {
-			param = CommonUtil.convertMap(getExchargeParams(), paramMap);
+			ParameterMapping parameterMapping = this.getClass().getAnnotation(ParameterMapping.class);
+			if (parameterMapping == null || parameterMapping.loginParam() == null) {
+				info("充值参数配置为空, 请检查是否配置@ParameterMapping参数");
+				return ResultCode.CODE_RINNING_ERROR;// 返回系统内部的错误信息
+			}
+			param = (IExchargeParam) CommonUtil.convertMap(parameterMapping.exchargeParam(), paramMap);
 			IResult result = checkParams(param);
 			if (result != null) {
-				info("验证失败...");
-				return result.toStr();
+				return ResultCode.CODE_RINNING_ERROR;// 返回系统内部的错误信息
 			}
 			// 获取到有效订单信息
 			PayOrder payOrder = getPayOrderService().getPayOrder(param.getOrderId());
 			if (payOrder != null) {
 				// 验证订单信息
-				BusinessResult<?> businessResult = sdkExcharge(param, payOrder);
+				BusinessResult<String> businessResult = sdkExcharge(param, payOrder);
 				if (businessResult.getResult().isSuccess()) {
 					// 兑换游戏币
 					getPayOrderService().exchangeGameMoney(payOrder);
-					resultCode = ResultCode.CODE_0;
 				} else {
-					resultCode = ResultCode.CODE_1;
 					info("充值回调数据校验错误, reChargeInfo:{}", param);
 				}
+				resultCode = businessResult.getObject();
 				payOrder.setPayStatus(OrderStatusEnum.Order_Confirmed_Exchanging);
 				payOrder.setChannelOrderId(param.getOrderId());
 			} else {
@@ -194,7 +190,7 @@ public abstract class AbstractController implements IController {
 		Set<Field> fieldSet = new HashSet<>();
 		while (clazz != null) {
 			fieldSet.addAll(Arrays.asList(clazz.getDeclaredFields()));
-			clazz = clazz.getSuperclass(); // 得到父类,然后赋给自己
+			clazz = clazz.getSuperclass();
 		}
 		boolean bool = false;
 		try {
@@ -209,6 +205,7 @@ public abstract class AbstractController implements IController {
 				}
 				sb.append(name).append("=").append(obj).append(", ");
 			}
+			sb.deleteCharAt(sb.length() - 1);
 			info("参数信息, param:{}", sb.toString());
 		} catch (Exception e) {
 			error("校验参数异常, param:{}, e:{}", object, e);

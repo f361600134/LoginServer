@@ -37,8 +37,4 @@ public interface IController {
 	@RequestMapping("/excharge")
 	public String excharge(HttpServletRequest request, HttpServletResponse response);
 
-	public Class<?> getLoginParams();
-
-	public boolean checkLogin(Object param);
-
 }
