@@ -9,7 +9,7 @@ import com.qlbs.Bridge.util.MD5;
 import com.qlbs.Bridge.util.UrlUtil;
 
 /**
- * 用户认证失败，返回结果对象, 通用返回结果集
+ * 用于用户验证身份.通用返回结果集
  */
 public class AuthResult extends AbstractResult {
 
@@ -127,11 +127,6 @@ public class AuthResult extends AbstractResult {
 	@Override
 	public String toString() {
 		return "AuthResult [code=" + super.getCode() + ", desc=" + super.getDesc() + ", identityName=" + identityName + ", identityId=" + identityId + ", serverId=" + serverId + ", tstamp=" + tstamp + ", sign=" + sign + "]";
-	}
-
-	@Override
-	public String toStr() {
-		return null;
 	}
 
 }

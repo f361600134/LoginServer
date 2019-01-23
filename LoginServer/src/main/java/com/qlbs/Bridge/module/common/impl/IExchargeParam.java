@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.youxifan.ios.param;
+package com.qlbs.Bridge.module.common.impl;
 
 public interface IExchargeParam {
 

@@ -1,8 +1,8 @@
-package com.qlbs.Bridge.module.youxifan.ios.param;
+package com.qlbs.Bridge.module.youxifan.android2.param;
 
 import com.qlbs.Bridge.module.common.impl.IExchargeParam;
 
-public class YouxifanIOSExchargeParam implements IExchargeParam {
+public class YouxifanExchargeParam implements IExchargeParam {
 
 	private String orderid;// 订单号
 	private String username;// 登录账号户名
@@ -22,10 +22,6 @@ public class YouxifanIOSExchargeParam implements IExchargeParam {
 
 	public void setOrderid(String orderid) {
 		this.orderid = orderid;
-	}
-
-	public YouxifanIOSExchargeParam() {
-		super();
 	}
 
 	public String getUsername() {
@@ -117,4 +113,5 @@ public class YouxifanIOSExchargeParam implements IExchargeParam {
 	public String getOrderId() {
 		return getOrderid();
 	}
+
 }

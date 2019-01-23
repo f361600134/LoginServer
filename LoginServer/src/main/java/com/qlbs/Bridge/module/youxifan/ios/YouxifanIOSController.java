@@ -12,11 +12,11 @@ import com.alibaba.fastjson.JSON;
 import com.qlbs.Bridge.common.ResultCode;
 import com.qlbs.Bridge.common.annotation.ParameterMapping;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
-import com.qlbs.Bridge.common.result.support.SimpleResult;
+import com.qlbs.Bridge.common.result.support.ExchargeResult;
 import com.qlbs.Bridge.domain.entity.PayOrder;
 import com.qlbs.Bridge.module.AbstractController;
+import com.qlbs.Bridge.module.common.impl.IExchargeParam;
 import com.qlbs.Bridge.module.youxifan.android.YouxifanConfig;
-import com.qlbs.Bridge.module.youxifan.ios.param.IExchargeParam;
 import com.qlbs.Bridge.module.youxifan.ios.param.YouxifanIOSExchargeParam;
 import com.qlbs.Bridge.module.youxifan.ios.param.YouxifanIOSLoginParam;
 import com.qlbs.Bridge.util.CommonUtil;
@@ -52,24 +52,18 @@ public class YouxifanIOSController extends AbstractController {
 	}
 
 	@Override
-	public BusinessResult<String> sdkExcharge(IExchargeParam p, PayOrder payOrder) {
+	public ExchargeResult sdkExcharge(IExchargeParam p, PayOrder payOrder) {
 		YouxifanIOSExchargeParam param = (YouxifanIOSExchargeParam) p;
-
-		BusinessResult<String> result = new BusinessResult<>();
 		Map<String, String> resultMap = CommonUtil.objToTreeMap(param, "sign");
 		String localSign = CommonUtil.getMySignByMap(resultMap, YouxifanConfig.appkey);
 		if (StringUtils.isAnyBlank(localSign, param.getSign())) {
 			logger.error("签名为空,  localSign:{}, reChargeInfo:{}", localSign, param.getSign());
-			result.setResult(SimpleResult.build(ErrorCodeEnum.IllEGAL_PARAMS));
-			result.setObject(ResultCode.CODE_1);
-			return result;
+			return new ExchargeResult(ErrorCodeEnum.IllEGAL_PARAMS, ResultCode.CODE_1);
 		}
 		if (StringUtils.equals(param.getSign(), localSign)) {
-			result.setResult(SimpleResult.build(ErrorCodeEnum.SUCCESS));
-			result.setObject(ResultCode.CODE_0);
-			return result;
+			return new ExchargeResult(ErrorCodeEnum.SUCCESS, ResultCode.CODE_0);
 		}
-		return result;
+		return new ExchargeResult(ErrorCodeEnum.ERROR_UNKNOWN, ResultCode.CODE_1);
 	}
 
 }

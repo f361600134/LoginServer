@@ -26,6 +26,13 @@ public interface IResult {
 	 */
 	public boolean isSuccess();
 
-	public String toStr();
+	/**
+	 * 获取结果集字符串
+	 * 
+	 * @return
+	 * @return boolean
+	 * @date 2018年12月29日下午5:30:54
+	 */
+	public String getResult();
 
 }

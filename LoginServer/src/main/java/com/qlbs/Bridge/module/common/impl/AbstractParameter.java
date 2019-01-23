@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.youxifan.ios.param;
+package com.qlbs.Bridge.module.common.impl;
 
 /**
  * 抽出公共参数 参数抽象类
@@ -13,6 +13,7 @@ public abstract class AbstractParameter {
 	private String qdCode1;
 	private String qdCode2;
 	private String gameKey;
+	private String userName;
 
 	public String getGameKey() {
 		return gameKey;
@@ -52,6 +53,14 @@ public abstract class AbstractParameter {
 
 	public void setQdCode2(String qdCode2) {
 		this.qdCode2 = qdCode2;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

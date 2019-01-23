@@ -63,4 +63,9 @@ public abstract class AbstractResult implements IResult {
 		return "AbstractResult [code=" + code + ", desc=" + desc + "]";
 	}
 
+	@Override
+	public String getResult() {
+		return null;
+	}
+
 }

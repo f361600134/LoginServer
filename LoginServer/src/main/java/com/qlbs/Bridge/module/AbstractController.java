@@ -19,11 +19,12 @@ import com.qlbs.Bridge.common.annotation.ParameterMapping;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
 import com.qlbs.Bridge.common.result.support.AuthResult;
-import com.qlbs.Bridge.common.result.support.SimpleResult;
+import com.qlbs.Bridge.common.result.support.ExchargeResult;
+import com.qlbs.Bridge.common.result.support.OrderResult;
 import com.qlbs.Bridge.domain.OrderStatusEnum;
 import com.qlbs.Bridge.domain.entity.PayOrder;
-import com.qlbs.Bridge.module.youxifan.ios.BusinessResult;
-import com.qlbs.Bridge.module.youxifan.ios.param.IExchargeParam;
+import com.qlbs.Bridge.module.common.impl.IExchargeParam;
+import com.qlbs.Bridge.module.common.impl.PreOrderParam;
 import com.qlbs.Bridge.service.PayOrderService;
 import com.qlbs.Bridge.service.UserDataService;
 import com.qlbs.Bridge.util.CommonUtil;
@@ -80,10 +81,6 @@ public abstract class AbstractController implements IController {
 		return AuthResult.faild(ErrorCodeEnum.ERROR_UNKNOWN);
 	}
 
-	public boolean sdkLogin(Object param) {
-		return false;
-	}
-
 	/**
 	 * 创建订单统一方法, 如果遇到某些平台方的参数不一样, 重写该方法即可
 	 * 
@@ -95,29 +92,51 @@ public abstract class AbstractController implements IController {
 	 */
 	@Override
 	public IResult createOrder(HttpServletRequest request, HttpServletResponse response) {
-		String qd1 = request.getParameter("qd1");
-		String qd2 = request.getParameter("qd2");
-		String playerId = request.getParameter("playerId");
-		String playerName = request.getParameter("playerName");
-		String gameKey = request.getParameter("gameKey");
-		String serverId = request.getParameter("serverId");
-		String eUrl = request.getParameter("eUrl");
-		String price = request.getParameter("money");
-		String gameMoney = request.getParameter("yuanbao");
-		String sign = request.getParameter("sign");
-		String userId = request.getParameter("userId");
-
-		// 旧版本创建订单,不传userId则用playerId代替
-		userId = userId == null ? playerId : userId;
-		IResult result = checkParams(qd1, qd2, playerId, userId, playerName, gameKey, serverId, eUrl, price, gameMoney, sign);
-		if (result != null) {
-			error("Some of the parameters are null or empty");
-			error("qd1:{}, qd2:{}, userId:{}, playerId:{}, playerName:{}, gameKey:{}, serverId:{}, eUrl:{}, price:{}, gameMoney:{}, gameMoney:{}, sign:{}", //
-					qd1, qd2, userId, playerId, playerName, gameKey, serverId, eUrl, price, gameMoney, gameMoney, sign);
-			return result;
+		Map<String, String[]> paramMap = request.getParameterMap();
+		ParameterMapping parameterMapping = this.getClass().getAnnotation(ParameterMapping.class);
+		if (parameterMapping == null) {
+			info("登录参数配置为空, 请检查是否配置[@ParameterMapping]注解");
+			return OrderResult.build(ErrorCodeEnum.ERROR_RUNNING);
 		}
-		result = getPayOrderService().createOrder(qd1, qd2, playerId, userId, playerName, gameKey, serverId, eUrl, price, gameMoney, sign);
+		IResult result = null;
+		PreOrderParam param = null;
+		try {
+			param = (PreOrderParam) CommonUtil.convertMap(parameterMapping.orderParam(), paramMap);
+			result = checkParams(param);
+			if (result != null) {
+				return OrderResult.build(ErrorCodeEnum.IllEGAL_PARAMS);
+			}
+			result = getPayOrderService().createOrder(param);
+			if (result.isSuccess())
+				result = sdkOrder(param);
+		} catch (Exception e) {
+			error("创建订单出错:{}", e);
+		}
 		return result;
+	}
+
+	/**
+	 * sdk登录验证
+	 * 
+	 * @param param
+	 * @return
+	 * @return boolean
+	 * @date 2019年1月23日下午7:26:26
+	 */
+	public boolean sdkLogin(Object object) {
+		return false;
+	}
+
+	/**
+	 * sdk创建订单验证
+	 * 
+	 * @param param
+	 * @return
+	 * @return boolean
+	 * @date 2019年1月23日下午7:26:26
+	 */
+	public IResult sdkOrder(PreOrderParam param) {
+		return OrderResult.build(ErrorCodeEnum.SUCCESS);
 	}
 
 	/**
@@ -127,7 +146,7 @@ public abstract class AbstractController implements IController {
 	 * @return BusinessResult
 	 * @date 2019年1月22日下午7:35:37
 	 */
-	public BusinessResult<String> sdkExcharge(IExchargeParam param, PayOrder payOrder) {
+	public IResult sdkExcharge(IExchargeParam object, PayOrder payOrder) {
 		return null;
 	}
 
@@ -156,23 +175,24 @@ public abstract class AbstractController implements IController {
 			PayOrder payOrder = getPayOrderService().getPayOrder(param.getOrderId());
 			if (payOrder != null) {
 				// 验证订单信息
-				BusinessResult<String> businessResult = sdkExcharge(param, payOrder);
-				if (businessResult.getResult().isSuccess()) {
+				IResult businessResult = sdkExcharge(param, payOrder);
+				if (businessResult.isSuccess()) {
 					// 兑换游戏币
 					getPayOrderService().exchangeGameMoney(payOrder);
 				} else {
-					info("充值回调数据校验错误, reChargeInfo:{}", param);
+					info("充值回调数据校验错误, IExchargeParam:{}", param);
 				}
-				resultCode = businessResult.getObject();
+				resultCode = businessResult.getResult();
 				payOrder.setPayStatus(OrderStatusEnum.Order_Confirmed_Exchanging);
 				payOrder.setChannelOrderId(param.getOrderId());
 			} else {
-				resultCode = ResultCode.CODE_1;
-				info("充值失败订单有误, reChargeInfo:{}", param);
+				resultCode = ResultCode.CODE_ORDER_ERROR;
+				info("充值失败订单有误, IExchargeParam:{}", param);
 			}
 		} catch (Exception e) {
-			resultCode = ResultCode.CODE_2;
-			error("充值回调出现异常, reChargeInfo:{}", param);
+			resultCode = ResultCode.CODE_RINNING_ERROR;
+			info("充值回调出现异常, IExchargeParam:{}", param);
+			error("充值回调出现异常, e:{}", e);
 		}
 		return resultCode;
 	}
@@ -210,7 +230,7 @@ public abstract class AbstractController implements IController {
 		} catch (Exception e) {
 			error("校验参数异常, param:{}, e:{}", object, e);
 		}
-		return bool ? SimpleResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
+		return bool ? ExchargeResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
 	}
 
 	/**
@@ -223,7 +243,7 @@ public abstract class AbstractController implements IController {
 	 */
 	public IResult checkParams(String... params) {
 		boolean bool = StringUtils.isAnyBlank(params);
-		return bool ? SimpleResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
+		return bool ? ExchargeResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
 	}
 
 	public void info(String infoMsg, Object... params) {

@@ -92,7 +92,7 @@ public class HttpClientUtil {
 		}
 		HttpGet httpGet = new HttpGet(builder.build());
 		// set headers.
-		if (params != null) {
+		if (headers != null) {
 			for (NameValuePair header : headers) {
 				httpGet.addHeader(header.getName(), header.getValue());
 			}

@@ -1,5 +1,7 @@
 package com.qlbs.Bridge.module.youxifan.ios.param;
 
+import com.qlbs.Bridge.module.common.impl.AbstractParameter;
+
 /**
  * 游戏fan登录参数
  * 

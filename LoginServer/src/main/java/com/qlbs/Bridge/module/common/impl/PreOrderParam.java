@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.youxifan.ios.param;
+package com.qlbs.Bridge.module.common.impl;
 
 /**
  * 创建订单参数
@@ -6,7 +6,7 @@ package com.qlbs.Bridge.module.youxifan.ios.param;
  * @auth Jeremy
  * @date 2019年1月10日下午2:42:27
  */
-public class AbstractPreOrderParam {
+public class PreOrderParam {
 
 	private String qd1;
 	private String qd2;
@@ -18,8 +18,12 @@ public class AbstractPreOrderParam {
 	private String money;
 	private String yuanbao;
 	private String sign;
+	private String userId;
 
-	public AbstractPreOrderParam(String qd1, String qd2, String playerId, String playerName, String gameKey, String serverId, String eUrl, String money, String yuanbao, String sign) {
+	public PreOrderParam() {
+	}
+
+	public PreOrderParam(String qd1, String qd2, String playerId, String playerName, String gameKey, String serverId, String eUrl, String money, String yuanbao, String sign, String userId) {
 		super();
 		this.qd1 = qd1;
 		this.qd2 = qd2;
@@ -31,7 +35,7 @@ public class AbstractPreOrderParam {
 		this.money = money;
 		this.yuanbao = yuanbao;
 		this.sign = sign;
-		// this.userId = userId;
+		this.userId = userId;
 	}
 
 	public void setQd1(String qd1) {
@@ -74,9 +78,9 @@ public class AbstractPreOrderParam {
 		this.sign = sign;
 	}
 
-	// public void setUserId(String userId) {
-	// this.userId = userId;
-	// }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	public String getQd1() {
 		return qd1;
@@ -118,8 +122,8 @@ public class AbstractPreOrderParam {
 		return sign;
 	}
 
-	// public String getUserId() {
-	// return userId;
-	// }
+	public String getUserId() {
+		return userId;
+	}
 
 }

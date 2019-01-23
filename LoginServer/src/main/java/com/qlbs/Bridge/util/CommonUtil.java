@@ -23,7 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
-import com.qlbs.Bridge.common.result.support.SimpleResult;
+import com.qlbs.Bridge.common.result.support.ExchargeResult;
 import com.qlbs.Bridge.controller.Stu;
 
 public class CommonUtil {
@@ -65,7 +65,7 @@ public class CommonUtil {
 			bool = false;
 			logger.error("校验参数异常, param:{}", object);
 		}
-		return bool ? SimpleResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
+		return bool ? ExchargeResult.build(ErrorCodeEnum.IllEGAL_PARAMS) : null;
 	}
 
 	/**
@@ -210,7 +210,7 @@ public class CommonUtil {
 	}
 
 	/**
-	 * 把一个对象解析成json
+	 * 把对象转成Map
 	 * 
 	 * @param obj
 	 * @param extract

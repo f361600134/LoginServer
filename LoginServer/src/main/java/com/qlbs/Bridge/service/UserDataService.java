@@ -11,7 +11,7 @@ import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
 import com.qlbs.Bridge.common.result.support.AuthResult;
 import com.qlbs.Bridge.domain.entity.UserData;
-import com.qlbs.Bridge.module.youxifan.ios.param.AbstractParameter;
+import com.qlbs.Bridge.module.common.impl.AbstractParameter;
 import com.qlbs.Bridge.repository.UserDataRepository;
 import com.qlbs.Bridge.util.UrlUtil;
 

@@ -19,10 +19,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.qlbs.Bridge.common.config.DefineConfig;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
-import com.qlbs.Bridge.common.result.support.ProcessResult;
-import com.qlbs.Bridge.domain.ExchargeResult;
+import com.qlbs.Bridge.common.result.support.OrderResult;
 import com.qlbs.Bridge.domain.OrderStatusEnum;
 import com.qlbs.Bridge.domain.entity.PayOrder;
+import com.qlbs.Bridge.module.common.impl.PreOrderParam;
 import com.qlbs.Bridge.repository.PayOrderRepostory;
 import com.qlbs.Bridge.util.HttpClientUtil;
 import com.qlbs.Bridge.util.MD5;
@@ -35,6 +35,64 @@ public class PayOrderService {
 
 	@Autowired
 	private PayOrderRepostory payOrderRepostory;
+
+	/**
+	 * 创建订单
+	 * 
+	 * @param qd1
+	 * @param qd2
+	 * @param playerId
+	 * @param playerName
+	 * @param gameKey
+	 * @param serverId
+	 * @param eUrl
+	 * @param price
+	 * @param gameMoney
+	 * @param sign
+	 * @return
+	 * @return IResult
+	 * @date 2018年10月8日上午9:54:11
+	 */
+	public IResult createOrder(PreOrderParam param) {
+		IResult result = null;
+		String sysOrderId = null;
+		try {
+			String eUrl = UrlUtil.decode(param.geteUrl());
+			eUrl = eUrl + "/services";
+			BigDecimal amount = new BigDecimal(param.getMoney());
+			amount = amount.setScale(2, 6);
+			String playerName = UrlUtil.decode(param.getPlayerName());
+
+			sysOrderId = UUID.randomUUID().toString().toUpperCase().replace("-", "");
+			PayOrder order = new PayOrder();
+			order.setOrderId(sysOrderId);
+			order.setServerId(Integer.valueOf(param.getServerId()).intValue());
+			order.setExchangeUrl(eUrl);
+			order.setPlayerId(param.getPlayerId());
+			order.setPlayerName(playerName);
+			order.setUserId(param.getUserId());
+			order.setIdentityName(param.getPlayerId());
+			order.setMoneyBig(amount);
+			order.setQdCode1(Integer.valueOf(param.getQd1()).intValue());
+			order.setQdCode2(Integer.valueOf(param.getQd2()).intValue());
+			order.setGameKey(param.getGameKey());
+			order.setMoney(Float.valueOf(param.getMoney()).floatValue());
+			order.setGameMoney(Integer.valueOf(param.getYuanbao()).intValue());
+			order.setPayStatus(OrderStatusEnum.Order_Created_Paying);
+			Timestamp createTime = new Timestamp(System.currentTimeMillis());
+			order.setCreationTime(createTime);
+			order.setUpdateTime(createTime);
+
+			payOrderRepostory.save(order);
+			result = OrderResult.build(ErrorCodeEnum.SUCCESS, order.getOrderId());
+			logger.info("PayOrderService.create successful, orderId:{}", sysOrderId);
+		} catch (Exception e) {
+			result = OrderResult.build(ErrorCodeEnum.ERROR_ORDER_CREATE, sysOrderId);
+			logger.error("", e);
+			logger.error("PayOrderService.create has an error, orderId:{}", sysOrderId);
+		}
+		return result;
+	}
 
 	/**
 	 * 创建订单
@@ -84,10 +142,10 @@ public class PayOrderService {
 			order.setUpdateTime(createTime);
 
 			payOrderRepostory.save(order);
-			result = ProcessResult.build(ErrorCodeEnum.SUCCESS, order.getOrderId());
+			result = OrderResult.build(ErrorCodeEnum.SUCCESS, order.getOrderId());
 			logger.info("PayOrderService.create successful, orderId:{}", sysOrderId);
 		} catch (Exception e) {
-			result = ProcessResult.build(ErrorCodeEnum.ERROR_ORDER_CREATE, sysOrderId);
+			result = OrderResult.build(ErrorCodeEnum.ERROR_ORDER_CREATE, sysOrderId);
 			logger.error("", e);
 			logger.error("PayOrderService.create has an error, orderId:{}", sysOrderId);
 		}
@@ -239,6 +297,62 @@ public class PayOrderService {
 			logger.error("The parameters are identityName:{}, playerName:{}, gameGold:{}, remarks:{}, moneyType:{}, payMoneybig:{}, tarUrl:{}, sign:{}", userId, playerName, gameGold, payOrder.getRemark(), moneyType, moneyBig, tarUrl, sign);
 			logger.error("订单完成确认,发放游戏币时发生异常!", e);
 		}
+	}
+
+	/**
+	 * 游戏服返回的充值结果集, 内部类
+	 * 
+	 * @auth Jeremy
+	 * @date 2019年1月23日下午5:48:18
+	 */
+	private static class ExchargeResult {
+
+		private int code;
+		private String description;
+		private int gameMoney;
+		private int payMoney;
+
+		public int getPayMoney() {
+			return payMoney;
+		}
+
+		public void setPayMoney(int payMoney) {
+			this.payMoney = payMoney;
+		}
+
+		public int getCode() {
+			return code;
+		}
+
+		public void setCode(int code) {
+			this.code = code;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public int getGameMoney() {
+			return gameMoney;
+		}
+
+		public void setGameMoney(int gameMoney) {
+			this.gameMoney = gameMoney;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public boolean isSuccess() {
+			return getCode() == 0;
+		}
+
+		@Override
+		public String toString() {
+			return "ExchargeResult [code=" + code + ", description=" + description + ", gameMoney=" + gameMoney + ", payMoney=" + payMoney + "]";
+		}
+
 	}
 
 }
