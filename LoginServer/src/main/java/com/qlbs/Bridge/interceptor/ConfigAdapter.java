@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.Interceptor;
+package com.qlbs.Bridge.interceptor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

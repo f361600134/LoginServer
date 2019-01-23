@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.Interceptor;
+package com.qlbs.Bridge.interceptor;
 
 import java.sql.Timestamp;
 import java.util.Collection;
