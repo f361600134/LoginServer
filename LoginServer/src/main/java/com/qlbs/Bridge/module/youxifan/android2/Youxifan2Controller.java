@@ -53,6 +53,20 @@ public class Youxifan2Controller extends AbstractController {
 		return false;
 	}
 
+	@Override
+	public IResult sdkOrder(PayOrder order) {
+		Map<String, String> map = new HashMap<>();
+		map.put("appId", String.valueOf(Youxifan2Config.YG_APPI));
+		map.put("uid", order.getUserId());
+		map.put("cpOrderId", order.getOrderId());
+		map.put("roleId", order.getPlayerId());
+		map.put("zoneId", "1");
+		map.put("amount", String.valueOf(order.getMoneyBig().intValue() * 100));
+		String sign = CommonUtil.getMySignByMap(map, Youxifan2Config.appkey);
+		YouxifanOrderResult result = YouxifanOrderResult.build(ErrorCodeEnum.SUCCESS, order.getOrderId(), sign);
+		return result;
+	}
+
 	/**
 	 * @param
 	 * @return 0: 支付成功, 1: 签名失败, 2:未知错误

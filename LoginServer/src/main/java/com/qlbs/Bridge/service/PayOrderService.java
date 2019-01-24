@@ -38,20 +38,52 @@ public class PayOrderService {
 
 	/**
 	 * 创建订单
-	 * 
-	 * @param qd1
-	 * @param qd2
-	 * @param playerId
-	 * @param playerName
-	 * @param gameKey
-	 * @param serverId
-	 * @param eUrl
-	 * @param price
-	 * @param gameMoney
-	 * @param sign
-	 * @return
-	 * @return IResult
-	 * @date 2018年10月8日上午9:54:11
+	 */
+	public PayOrder createOrder1(PreOrderParam param) {
+		PayOrder order = new PayOrder();
+		String sysOrderId = null;
+		try {
+			String eUrl = UrlUtil.decode(param.geteUrl());
+			eUrl = eUrl + "/services";
+			BigDecimal amount = new BigDecimal(param.getMoney());
+			amount = amount.setScale(2, 6);
+			String playerName = UrlUtil.decode(param.getPlayerName());
+
+			sysOrderId = UUID.randomUUID().toString().toUpperCase().replace("-", "");
+			order.setOrderId(sysOrderId);
+			order.setServerId(Integer.valueOf(param.getServerId()).intValue());
+			order.setExchangeUrl(eUrl);
+			order.setPlayerId(param.getPlayerId());
+			order.setPlayerName(playerName);
+			order.setUserId(param.getUserId());
+			order.setIdentityName(param.getPlayerId());
+			order.setMoneyBig(amount);
+			order.setQdCode1(Integer.valueOf(param.getQd1()).intValue());
+			order.setQdCode2(Integer.valueOf(param.getQd2()).intValue());
+			order.setGameKey(param.getGameKey());
+			order.setMoney(Float.valueOf(param.getMoney()).floatValue());
+			order.setGameMoney(Integer.valueOf(param.getYuanbao()).intValue());
+			order.setPayStatus(OrderStatusEnum.Order_Created_Paying);
+			Timestamp createTime = new Timestamp(System.currentTimeMillis());
+			order.setCreationTime(createTime);
+			order.setUpdateTime(createTime);
+			payOrderRepostory.save(order);
+			// result = OrderResult.build(ErrorCodeEnum.SUCCESS,
+			// order.getOrderId());
+			// logger.info("PayOrderService.create successful, orderId:{}",
+			// sysOrderId);
+		} catch (Exception e) {
+			// result = OrderResult.build(ErrorCodeEnum.ERROR_ORDER_CREATE,
+			// sysOrderId);
+			// logger.error("", e);
+			order = null;
+			logger.error("PayOrderService.create has an error, orderId:{}", sysOrderId);
+		}
+		return order;
+	}
+
+	/**
+	 * 创建订单
 	 */
 	public IResult createOrder(PreOrderParam param) {
 		IResult result = null;

@@ -103,12 +103,16 @@ public abstract class AbstractController implements IController {
 		try {
 			param = (PreOrderParam) CommonUtil.convertMap(parameterMapping.orderParam(), paramMap);
 			result = checkParams(param);
-			if (result != null) {
-				return OrderResult.build(ErrorCodeEnum.IllEGAL_PARAMS);
+			if (result == null) {
+				PayOrder payOrder = getPayOrderService().createOrder1(param);
+				if (payOrder != null)
+					result = sdkOrder(payOrder);
+				else {
+					result = OrderResult.build(ErrorCodeEnum.ERROR_ORDER_CREATE);
+				}
+			} else {
+				result = OrderResult.build(ErrorCodeEnum.IllEGAL_PARAMS);
 			}
-			result = getPayOrderService().createOrder(param);
-			if (result.isSuccess())
-				result = sdkOrder(param);
 		} catch (Exception e) {
 			error("创建订单出错:{}", e);
 		}
@@ -135,7 +139,7 @@ public abstract class AbstractController implements IController {
 	 * @return boolean
 	 * @date 2019年1月23日下午7:26:26
 	 */
-	public IResult sdkOrder(PreOrderParam param) {
+	public IResult sdkOrder(PayOrder order) {
 		return OrderResult.build(ErrorCodeEnum.SUCCESS);
 	}
 
