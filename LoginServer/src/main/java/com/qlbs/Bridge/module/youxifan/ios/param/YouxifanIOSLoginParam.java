@@ -1,6 +1,6 @@
 package com.qlbs.Bridge.module.youxifan.ios.param;
 
-import com.qlbs.Bridge.module.common.impl.AbstractParameter;
+import com.qlbs.Bridge.module.common.impl.AbstractLoginParameter;
 
 /**
  * 游戏fan登录参数
@@ -8,7 +8,7 @@ import com.qlbs.Bridge.module.common.impl.AbstractParameter;
  * @auth Jeremy
  * @date 2019年1月9日下午2:26:37
  */
-public class YouxifanIOSLoginParam extends AbstractParameter {
+public class YouxifanIOSLoginParam extends AbstractLoginParameter {
 
 	private String token;
 

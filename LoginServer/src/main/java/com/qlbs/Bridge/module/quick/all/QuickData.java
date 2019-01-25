@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.quick;
+package com.qlbs.Bridge.module.quick.all;
 
 /**
  * Quick 渠道的nt_data参数的xml格式解析后数据bean

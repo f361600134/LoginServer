@@ -114,4 +114,10 @@ public class YouxifanExchargeParam implements IExchargeParam {
 		return getOrderid();
 	}
 
+	@Override
+	public void setIExchargeParam(IExchargeParam param) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

@@ -6,7 +6,7 @@ package com.qlbs.Bridge.module.common.impl;
  * @auth Jeremy
  * @date 2019年1月9日下午2:24:03
  */
-public abstract class AbstractParameter {
+public abstract class AbstractLoginParameter {
 
 	private String userId;
 	private String serverId;

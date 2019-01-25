@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.quick;
+package com.qlbs.Bridge.module.quick.all;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

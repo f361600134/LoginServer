@@ -4,4 +4,6 @@ public interface IExchargeParam {
 
 	public String getOrderId();
 
+	public void setIExchargeParam(IExchargeParam param);
+
 }

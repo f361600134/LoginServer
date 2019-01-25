@@ -6,7 +6,7 @@ package com.qlbs.Bridge.common.result;
  * @auth Jeremy
  * @date 2018年9月21日下午1:54:38
  */
-public abstract class AbstractResult implements IResult {
+public class AbstractResult implements IResult {
 
 	// 错误码
 	private int code;
@@ -66,6 +66,10 @@ public abstract class AbstractResult implements IResult {
 	@Override
 	public String getResult() {
 		return null;
+	}
+
+	public static IResult build(ErrorCodeEnum codeEnum) {
+		return new AbstractResult(codeEnum);
 	}
 
 }

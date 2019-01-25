@@ -1,5 +1,5 @@
 
-package com.qlbs.Bridge.module.quick;
+package com.qlbs.Bridge.module.quick.all;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;

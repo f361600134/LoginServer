@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.quick;
+package com.qlbs.Bridge.module.quick.all;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -79,9 +79,10 @@ public class QuickService {
 			logger.info("Quick充值失败, 参数ntData为空,  ntData:{}", ntData);
 			return null;
 		}
-		// 移除掉一个碍事儿的节点
+
 		String key = QuickConfig.callbackKey;
 		String realNtData = QuickSignUtil.decode(ntData, key);
+		// 移除掉一个碍事儿的节点
 		realNtData = realNtData.replaceAll("\\<quicksdk_message>|\\</quicksdk_message>", "");
 		XStream xStream = new XStream(new DomDriver());
 		xStream.alias("message", QuickData.class);
@@ -97,7 +98,7 @@ public class QuickService {
 			return null;
 		}
 		// 正式服务器, 如果测试账号, 则视为失败
-		System.out.println(QuickConfig.test + ", " + StringUtils.equals(QuickConfig.test, "true"));
+		logger.info(QuickConfig.test + ", " + StringUtils.equals(QuickConfig.test, "true"));
 		if (!StringUtils.equals(QuickConfig.test, "true")) {
 			if (StringUtils.equals(ResultCode.CODE_1, data.getIs_test())) {
 				logger.info("测试模式已关闭, 测试订单不可用, 订单ID为: {}" + data.getGame_order());

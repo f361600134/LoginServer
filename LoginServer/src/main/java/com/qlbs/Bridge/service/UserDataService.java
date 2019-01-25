@@ -11,7 +11,7 @@ import com.qlbs.Bridge.common.result.ErrorCodeEnum;
 import com.qlbs.Bridge.common.result.IResult;
 import com.qlbs.Bridge.common.result.support.AuthResult;
 import com.qlbs.Bridge.domain.entity.UserData;
-import com.qlbs.Bridge.module.common.impl.AbstractParameter;
+import com.qlbs.Bridge.module.common.impl.AbstractLoginParameter;
 import com.qlbs.Bridge.repository.UserDataRepository;
 import com.qlbs.Bridge.util.UrlUtil;
 
@@ -72,7 +72,7 @@ public class UserDataService {
 	 * @return IResult
 	 * @date 2018年12月3日上午11:06:18
 	 */
-	public IResult authenticate(AbstractParameter loginParam) {
+	public IResult authenticate(AbstractLoginParameter loginParam) {
 		String username = UrlUtil.utf8Decode(loginParam.getUserId());
 		AuthResult ar = null;
 		try {
@@ -110,7 +110,7 @@ public class UserDataService {
 	 * @date 2018年12月3日上午11:06:18
 	 */
 	public IResult authenticate(Object object) {
-		AbstractParameter loginParam = (AbstractParameter) object;
+		AbstractLoginParameter loginParam = (AbstractLoginParameter) object;
 		String username = UrlUtil.utf8Decode(loginParam.getUserId());
 		AuthResult ar = null;
 		try {

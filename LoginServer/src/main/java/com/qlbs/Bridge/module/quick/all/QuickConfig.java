@@ -1,4 +1,4 @@
-package com.qlbs.Bridge.module.quick;
+package com.qlbs.Bridge.module.quick.all;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;

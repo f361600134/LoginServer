@@ -1,8 +1,8 @@
 package com.qlbs.Bridge.module.youxifan.android2.param;
 
-import com.qlbs.Bridge.module.common.impl.AbstractParameter;
+import com.qlbs.Bridge.module.common.impl.AbstractLoginParameter;
 
-public class YouxifanLoginParam extends AbstractParameter {
+public class YouxifanLoginParam extends AbstractLoginParameter {
 
 	private String sessionId;
 	private String platformId;
