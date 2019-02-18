@@ -69,6 +69,7 @@ public abstract class AbstractController implements IController {
 			if (result != null) {
 				return AuthResult.faild(ErrorCodeEnum.IllEGAL_PARAMS);
 			}
+
 			boolean bool = sdkLogin(param);
 			if (!bool) {
 				info("sdk校验出错", param);

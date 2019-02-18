@@ -1,7 +1,7 @@
 package com.qlbs.Bridge.common.result;
 
 /**
- * 返回前端接口类
+ * 返回前端接口类, 对于错误码, 每次只生成一条, 如果给予状态的改变即可
  * 
  * @auth Jeremy
  * @date 2018年9月21日下午1:55:02

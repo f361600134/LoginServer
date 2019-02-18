@@ -94,7 +94,7 @@ public class CommonUtil {
 	/**
 	 * Map转实体类共通方法
 	 * 
-	 * @param type
+	 * @param clazz
 	 * @param map
 	 * @return
 	 * @throws Exception
@@ -102,9 +102,9 @@ public class CommonUtil {
 	 * @date 2019年1月9日上午10:23:03
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> T convertMap(Class<T> type, Map<String, String[]> map) throws Exception {
-		BeanInfo beanInfo = Introspector.getBeanInfo(type);
-		Object obj = type.newInstance();
+	public static <T> T convertMap(Class<T> clazz, Map<String, String[]> map) throws Exception {
+		BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
+		Object obj = clazz.newInstance();
 		PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
 		for (PropertyDescriptor descriptor : propertyDescriptors) {
 			String propertyName = descriptor.getName();

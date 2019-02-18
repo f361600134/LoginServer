@@ -1,6 +1,5 @@
 package com.qlbs.Bridge.common.result.support;
 
-import com.google.common.base.Preconditions;
 import com.qlbs.Bridge.common.config.DefineConfig;
 import com.qlbs.Bridge.common.result.AbstractResult;
 import com.qlbs.Bridge.common.result.ErrorCodeEnum;
@@ -118,9 +117,6 @@ public class AuthResult extends AbstractResult {
 	 * @return
 	 */
 	public static AuthResult faild(ErrorCodeEnum codeEnum) {
-		// 错误提示
-		Preconditions.checkNotNull(codeEnum);
-		Preconditions.checkArgument(!(codeEnum == ErrorCodeEnum.SUCCESS), "错误码有误,codeEnum:" + codeEnum.getStatus());
 		return new AuthResult(codeEnum);
 	}
 

@@ -1,5 +1,7 @@
 package com.qlbs.Bridge.common.result;
 
+import com.google.common.base.Preconditions;
+
 /**
  * 客户端结果集抽象类
  * 
@@ -48,7 +50,23 @@ public class AbstractResult implements IResult {
 	}
 
 	public AbstractResult(ErrorCodeEnum eEnum) {
-		super();
+		// 错误提示
+		Preconditions.checkNotNull(eEnum);
+		Preconditions.checkArgument(!(eEnum == ErrorCodeEnum.SUCCESS), "错误码有误,codeEnum:" + eEnum.getStatus());
+		this.code = eEnum.getStatus();
+		this.desc = eEnum.getDesc();
+	}
+
+	/**
+	 * 错误码的错误状态发生改变
+	 * 
+	 * @return void
+	 * @date 2019年2月14日上午11:17:39
+	 */
+	public void change(ErrorCodeEnum eEnum) {
+		// 错误提示
+		Preconditions.checkNotNull(eEnum);
+		Preconditions.checkArgument(!(eEnum == ErrorCodeEnum.SUCCESS), "错误码有误,codeEnum:" + eEnum.getStatus());
 		this.code = eEnum.getStatus();
 		this.desc = eEnum.getDesc();
 	}
